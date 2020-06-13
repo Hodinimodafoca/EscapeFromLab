@@ -39,7 +39,8 @@ public class Ragdoll : MonoBehaviour
         for (int i = 0; i < ragdollRigids.Count; i++)
         {
             ragdollRigids[i].isKinematic = false;
-            ragdollColliders[i].enabled = true; 
+            ragdollColliders[i].enabled = true;
+            ragdollRigids[i].transform.gameObject.layer = 10;
         }
 
         rgb.isKinematic = true;

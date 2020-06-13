@@ -22,10 +22,14 @@ public class Inimigo1 : MonoBehaviour
 
     public bool estaMorto;
     public bool furia;
+    public bool invencivel;
 
     public Renderer render;
-
     private CapsuleCollider capsule;
+
+    public AudioClip[] sonsMonstro;
+    public AudioSource audioMonstro;
+
     void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
@@ -34,7 +38,10 @@ public class Inimigo1 : MonoBehaviour
         ragScript = GetComponent<Ragdoll>();
         render = GetComponentInChildren<Renderer>();
 
+        audioMonstro = GetComponent<AudioSource>();
+
         estaMorto = false;
+        invencivel = false;
         ragScript.DesativaRagdoll();
         
         capsule = GetComponent<CapsuleCollider>();
@@ -53,9 +60,12 @@ public class Inimigo1 : MonoBehaviour
 
             capsule.enabled = true;
 
-            if(HP <= 50)
+            if(HP <= 50 && !furia)
             {
                 furia = true;
+                anim.ResetTrigger("LevouTiro");
+                ParaDeAndar();
+                anim.CrossFade("Zombie Scream", 0.2f);
                 render.material.color = Color.red;
                 velocidade = 8;
             }
@@ -68,6 +78,7 @@ public class Inimigo1 : MonoBehaviour
                 ParaDeAndar();
                 navMesh.enabled = false;
                 ragScript.AtivaRagdoll();
+                MorreSom();
             }
         }
     }
@@ -140,16 +151,20 @@ public class Inimigo1 : MonoBehaviour
 
         if(n % 2 == 0 && !furia)
         {
+            anim.SetTrigger("LevouTiro");
             ParaDeAndar();
         }
 
-        HP -= dano;
+        if (!invencivel)
+        {
+            HP -= dano;
+        }
     }
 
     void ParaDeAndar()
     {
         navMesh.isStopped = true;
-        anim.SetTrigger("LevouTiro");
+        //anim.SetTrigger("LevouTiro");
         anim.SetBool("PodeAndar", false);
         CorrigiRigEntra();
     }
@@ -157,5 +172,43 @@ public class Inimigo1 : MonoBehaviour
     public void DanoPlayer()
     {
         player.GetComponent<Movimento>().hp -= 10;
+    }
+
+    public void FicaInvencivel()
+    {
+        invencivel = true;
+    }
+
+    public void SaiInvencivel()
+    {
+        invencivel = false;
+        anim.speed = 2;
+    }
+
+    public void PassoMonstro()
+    {
+        audioMonstro.volume = 0.05f;
+        audioMonstro.PlayOneShot(sonsMonstro[0]);
+    }
+
+    public void SenteDor()
+    {
+        audioMonstro.volume = 1f;
+        audioMonstro.clip = sonsMonstro[1];
+        audioMonstro.Play();
+    }
+
+    public void GritaSom()
+    {
+        audioMonstro.volume = 1f;
+        audioMonstro.clip = sonsMonstro[2];
+        audioMonstro.Play();
+    }
+
+    public void MorreSom()
+    {
+        audioMonstro.volume = 1f;
+        audioMonstro.clip = sonsMonstro[3];
+        audioMonstro.Play();
     }
 }
