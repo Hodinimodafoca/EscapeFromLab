@@ -21,6 +21,9 @@ public class Inimigo2 : MonoBehaviour
     public GameObject pedraPermanete;
     public GameObject pedraInstancia;
 
+    public bool usaCurvaAnim;
+    public CapsuleCollider capcollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,8 @@ public class Inimigo2 : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         anim = GetComponent<Animator>();
         estaMorto = false;
+        usaCurvaAnim = false;
+        capcollider = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -49,6 +54,22 @@ public class Inimigo2 : MonoBehaviour
                 navMesh.enabled = false;
 
                 CorrigiRigEntra();
+                anim.CrossFade("Zombie Death", 0.2f);
+                transform.gameObject.layer = 10;
+                anim.applyRootMotion = true;
+                capcollider.direction = 2;
+                usaCurvaAnim = false;
+            }
+
+            if(usaCurvaAnim && !anim.IsInTransition(0))
+            {
+                capcollider.height = anim.GetFloat("AlturaCollider");
+                capcollider.center = new Vector3(0, anim.GetFloat("CentroColliderY"), 0);
+            }
+            else
+            {
+                capcollider.height = 2;
+                capcollider.center = new Vector3(0, 1, 0);
             }
         }
     }
@@ -84,9 +105,11 @@ public class Inimigo2 : MonoBehaviour
             navMesh.isStopped = true;
             anim.SetBool("Joga", true);
             CorrigiRigEntra();
-        }       
-        else 
+            usaCurvaAnim = true;
+        }
+        else
         {
+            pedraPermanete.SetActive(false);
             anim.SetBool("Joga", false);
             navMesh.isStopped = false;
             navMesh.SetDestination(player.transform.position);
@@ -119,5 +142,10 @@ public class Inimigo2 : MonoBehaviour
     void CorrigiRigSai()
     {
         rgb.isKinematic = false;
+    }
+
+    public void LevouDano(int dano)
+    {
+        hp -= dano;
     }
 }

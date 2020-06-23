@@ -166,20 +166,15 @@ public class GlockAnim : MonoBehaviour
 
         if (Physics.Raycast(new Vector3(ray.origin.x + Random.Range(-numAleatorioMira, numAleatorioMira), ray.origin.y + Random.Range(-numAleatorioMira, numAleatorioMira), ray.origin.z), Camera.main.transform.forward, out hit))
         {
-            
-            if(hit.transform.tag == "Inimigo1")
+            if (hit.transform.tag == "Inimigo1")
             {
-                if (hit.rigidbody != null && hit.transform.GetComponentInParent<Inimigo1>().estaMorto)
+                if (hit.transform.GetComponent<Inimigo1>() || hit.transform.GetComponent<Inimigo2>())
+                {
+                    InimigoVerificadorDano();
+                }
+                else if (hit.rigidbody != null && hit.transform.GetComponentInParent<Inimigo1>())
                 {
                     AdicionaForca(ray, 900);
-                }
-                else if (hit.transform.GetComponent<Inimigo1>())
-                {
-                    hit.transform.GetComponent<Inimigo1>().LevouDano(15);
-                }
-                else if(hit.transform.GetComponentInParent<Inimigo1>())
-                {
-                    hit.transform.GetComponentInParent<Inimigo1>().LevouDano(15);
                 }
 
                 GameObject particulaCriada = Instantiate(particulaSangue, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
@@ -199,6 +194,18 @@ public class GlockAnim : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f);
         estaAtirando = false;
+    }
+
+    void InimigoVerificadorDano()
+    {
+        if (hit.transform.GetComponent<Inimigo1>())
+        {
+            hit.transform.GetComponent<Inimigo1>().LevouDano(15);
+        }
+        else if (hit.transform.GetComponent<Inimigo2>())
+        {
+            hit.transform.GetComponent<Inimigo2>().LevouDano(15);
+        }
     }
 
     void InstanciaEfeitos()

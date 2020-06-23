@@ -38,5 +38,7 @@ public class JogaPedra : MonoBehaviour
             player.GetComponent<Movimento>().hp -= 30;
             Destroy(this.gameObject);
         }
+
+        Destroy(this.gameObject);
     }
 }

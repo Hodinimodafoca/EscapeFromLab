@@ -112,12 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: e4c85424dc4866d4fb3e19d1663a11e9, type: 2}
---- !u!1 &23523130 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc,
-    type: 3}
-  m_PrefabInstance: {fileID: 552766645}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &32414378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,79 +1371,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pegou: 0
   salvaObj: {fileID: 0}
---- !u!1001 &552766645
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 968444354}
-    m_Modifications:
-    - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_Name
-      value: PedraArremesso
-      objectReference: {fileID: 0}
-    - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.136
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.373
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.119
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5569169
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5569168
-      objectReference: {fileID: 0}
-    - target: {fileID: 451560, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.55691695
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
 --- !u!1 &585406847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,12 +2115,6 @@ Transform:
   m_Father: {fileID: 43492244}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &968444354 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7459455034317105491, guid: 85f6720f31ef3cd438393da2fb79ce59,
-    type: 3}
-  m_PrefabInstance: {fileID: 7459455032891926100}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1064614492
 GameObject:
   m_ObjectHideFlags: 0
@@ -9440,6 +9355,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrazyZombie
       objectReference: {fileID: 0}
+    - target: {fileID: 7401358745517448200, guid: 4a0aff6ded3ba1a4891de46850c1f7d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a0aff6ded3ba1a4891de46850c1f7d1, type: 3}
 --- !u!1001 &7459455032891926100
@@ -9449,15 +9369,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1878659818, guid: 85f6720f31ef3cd438393da2fb79ce59, type: 3}
-      propertyPath: pedraPermanete
-      value: 
-      objectReference: {fileID: 23523130}
-    - target: {fileID: 1878659818, guid: 85f6720f31ef3cd438393da2fb79ce59, type: 3}
-      propertyPath: pedraInstancia
-      value: 
-      objectReference: {fileID: 2883596737373385815, guid: b8abe7a433064dc468655e8f930fc7b2,
-        type: 3}
     - target: {fileID: 7459455034317105309, guid: 85f6720f31ef3cd438393da2fb79ce59,
         type: 3}
       propertyPath: m_LocalPosition.x
